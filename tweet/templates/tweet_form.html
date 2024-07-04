@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}
+ tweet
+{% endblock %}
+
+{% block content %}
+    <h1 class='text-center mt-4'>welcome to twitter</h1>
+    <h2>
+        {% if form.instance.pk %}
+        edit tweet
+        {% else %}
+        create tweet
+        {% endif %}
+        <form method="post" class='form' enctype='multipart/form-data'>
+            {% csrf_token %}
+            {{form.as_p }}
+            <button class="btn btn-warning text-white fw-bold text-capitalize">submit</button>
+        </form>
+        <a href="{% url 'tweet_list' %}">back to tweet list</a>
+    </h2>
+{% endblock %}o
